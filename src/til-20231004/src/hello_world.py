@@ -1,21 +1,24 @@
-"""
-You can run this example like this:
+"""公式のサンプル実装.
 
-    .. code:: console
-
-            $ luigi --module examples.hello_world examples.HelloWorldTask --local-scheduler
-
-If that does not work, see :ref:`CommandLine`.
+Notes
+-----
+```sh
+rm -rf '/tmp/bar'
+LUIGI_CONFIG_PARSER=toml LUIGI_CONFIG_PATH=src/config.toml python src/hello_world.py
+```
 """
 import luigi
 
 
 class HelloWorldTask(luigi.Task):
-    task_namespace = 'examples'
+    """タスク."""
+
+    task_namespace = "examples"
 
     def run(self):
+        """実行."""
         print("{task} says: Hello world!".format(task=self.__class__.__name__))
 
 
-if __name__ == '__main__':
-    luigi.run(['examples.HelloWorldTask', '--workers', '1', '--local-scheduler'])
+if __name__ == "__main__":
+    luigi.run(["examples.HelloWorldTask", "--workers", "1", "--local-scheduler"])
