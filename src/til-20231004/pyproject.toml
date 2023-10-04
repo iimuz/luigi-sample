@@ -9,7 +9,7 @@ urls = {repository = "https://github.com/iimuz/til/src/til-20231004"}
 version = "1.0.0"
 
 dependencies = [
-  "luigi"
+  "luigi[toml]"
 ]
 
 [tools.setuptools.package-dir]
