@@ -41,8 +41,7 @@ source .venv/Scripts/activate.ps1
 pip install -e .[dev,test]
 
 # freeze version
-pip freeze > constraint.txt
-pip install -e .[dev,test] -c constraint.txt
+pip freeze > requirements.txt
 ```
 
 ## code style
