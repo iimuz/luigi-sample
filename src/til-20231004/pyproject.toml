@@ -1,0 +1,33 @@
+[project]
+authors = [{name = "iimuz", email = "iz.primary.story+github@gmail.com"}]
+description = "luigiを利用したサンプル"
+license = {file = "LICENSE"}
+name = "luigi-sample"
+readme = "README.md"
+requires-python = ">=3.10"
+urls = {repository = "https://github.com/iimuz/til/src/til-20231004"}
+version = "1.0.0"
+
+dependencies = []
+
+[tools.setuptools.package-dir]
+luigi_sample = "src"
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "flake8",
+  "flake8-black",
+  "flake8-bugbear",
+  "flake8-docstrings",
+  "flake8-isort",
+  "isort",
+  "mypy",
+]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=63", "wheel"]
+
+[tool.isort]
+profile = "black"
