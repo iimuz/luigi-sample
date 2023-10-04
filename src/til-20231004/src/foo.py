@@ -29,7 +29,7 @@ import luigi
 
 
 class Foo(luigi.WrapperTask):
-    task_namespace = 'examples'
+    task_namespace = "examples"
 
     def run(self):
         print("Running Foo")
@@ -40,12 +40,12 @@ class Foo(luigi.WrapperTask):
 
 
 class Bar(luigi.Task):
-    task_namespace = 'examples'
+    task_namespace = "examples"
     num = luigi.IntParameter()
 
     def run(self):
-        time.sleep(1)
-        self.output().open('w').close()
+        time.sleep(0.001)
+        self.output().open("w").close()
 
     def output(self):
         """
@@ -55,4 +55,8 @@ class Bar(luigi.Task):
         :rtype: object (:py:class:`~luigi.target.Target`)
         """
         time.sleep(1)
-        return luigi.LocalTarget('/tmp/bar/%d' % self.num)
+        return luigi.LocalTarget("/tmp/bar/%d" % self.num)
+
+
+if __name__ == "__main__":
+    luigi.run(["examples.Foo", "--workers", "2", "--local-scheduler"])
